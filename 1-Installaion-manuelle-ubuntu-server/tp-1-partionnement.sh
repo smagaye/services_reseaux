@@ -6,7 +6,7 @@ mkdir $tmp_folder
 
 
 # Create a new volum group vgo
-./create_volume_group.sh  vg01 /dev/sda7
+./create_volume_group.sh  vg01 /dev/sda/7 /dev/sda7
 
 
 

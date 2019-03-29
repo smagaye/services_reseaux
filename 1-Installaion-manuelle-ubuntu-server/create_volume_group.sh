@@ -6,19 +6,20 @@
 
 
 volume_group_name=$0
-# Format systeme de fichier /dev/sda7
+# Format systeme de fichier /dev/sda/7
 sys_name=$1
 
+partition=$2
+
 # When you create a volum group you must to assign him a parttion
-echo Setup partition...
+echo Setup initial partition...
 pvcreate $sys_name
-echo Partition $sys_name was create successfully.
 pvdisplay
 
 
 echo Setup volume group...
-vgcreate $volume_group_name $sys_name
-echo Le groupe de volume groupe_volume_name créé
+vgcreate $volume_group_name $partition
+echo Volume Group $volume_group_name created
 
 
 
