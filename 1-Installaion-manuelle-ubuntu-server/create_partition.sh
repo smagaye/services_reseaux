@@ -24,7 +24,7 @@ mkfs.filesystem /dev/$volume_group_name/$partition_name
 echo Partition $partition_name was created successfully\nFilesystem : $filesystem\nPartition size : $partition_size
 
 # Create a folder where partition will be mounted
-mdkir $folder_base_name
+mkdir $folder_base_name
 
 # Mount partition
 mount /dev/$volume_group_name/$partition_name $folder_base_name
