@@ -9,18 +9,12 @@ dest_config=.config
 
 
 # Mise a jour de la base de données des installation
-#apt-get update
+apt-get update
 echo Base données de sites miroir est à jour
 
 # Installation des dépendances pour la compilation du noyau
-apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc liblz4-tool kernel-package initramfs-tools debconf-utils dpkg-dev
+apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc liblz4-tool kernel-package initramfs-tools debconf-utils dpkg-dev debhelper bin86
 echo Les dépendances pour la compilation du noyau ont été bien téléchargée.
-
-# Suppression des fichiers temporaires
-make-kpkg clean
-
-# Configuration avancée de la compilation
-# make menuconfig
 
 # Copie du noyau dans le répertoire /usr/src
 cp -R ./kernel/$noyau_zip $dest_noyau
@@ -36,7 +30,7 @@ echo Droit d\'éxécution accordé au fichier $noyau_zip
 cd $dest_noyau
 
 # Extraction du noyau
-#tar -xvf $noyau_zip
+tar -xvf $noyau_zip
 echo Le fichier $noyau_zip a été bien dézippé dans le répertoire $dest_noyau
 
 # Copie du fichier de configuration vers le répertoire de compilation
@@ -45,6 +39,9 @@ echo Le fichier de configuration $src_config a été bien déplacé dans $dest_c
 
 #Déplacement dans le répertoire noyau
 cd $new_noyau_name
+
+# Suppression des fichiers temporaires
+make-kpkg clean
 
 #Menu de configuration
 make menuconfig
