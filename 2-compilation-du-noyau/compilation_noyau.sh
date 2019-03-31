@@ -5,7 +5,7 @@ noyau_zip=linux-4.5.7.tar.xz
 dest_noyau=/usr/src
 new_noyau_name=linux-4.5.7
 src_config=/boot/config-4.4.0-142-generic
-dest_config=.config
+dest_config=/usr/src/$new_noyau_name/.config
 
 
 # Mise a jour de la base de données des installation
@@ -58,7 +58,7 @@ make-kpkg clean
 cd ..
 
 #Installation
-dpkg -i linux*.deb
+#dpkg -i linux*.deb
 
 
 
