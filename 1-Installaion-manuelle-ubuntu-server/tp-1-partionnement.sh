@@ -5,7 +5,7 @@ tmp_folder=/tmpfolder
 mkdir $tmp_folder
 
 # Create a new volum group vgo
-./create_volume_group.sh  vg01 /dev/sda7
+./create_volume_group.sh  vg01 /dev/sda4
 
 
 # Move all contents of directory /var in $tmp_folder
