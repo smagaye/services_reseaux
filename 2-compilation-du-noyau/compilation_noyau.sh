@@ -58,7 +58,7 @@ make-kpkg clean
 cd ..
 
 #Installation
-#dpkg -i linux*.deb
+dpkg -i *.deb
 
 
 
