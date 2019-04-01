@@ -5,22 +5,22 @@
 # ./create_partition.sh vg0 rootvar 1M ext4 var  
 
 
-volume_group_name=$0
-partition_name=$1
+volume_group_name=$1
+partition_name=$2
 # Partition size Format : 13G, 2M, 1K ...
-partition_size=$2
+partition_size=$3
 # Filesystem Format : ext4, fat32 ...
-filesystem=$3
+filesystem=$4
 
-folder_base_name=$4
+folder_base_name=$5
 
 #Create partition
 echo Partition loading...
-lv create -n $partition_name -L $partition_size
+lvcreate -n $partition_name $volume_group_name -L $partition_size
 
 # Format partition
 echo Configuration filesystem...
-mkfs.filesystem /dev/$volume_group_name/$partition_name
+mkfs.$filesystem /dev/$volume_group_name/$partition_name
 echo Partition $partition_name was created successfully\nFilesystem : $filesystem\nPartition size : $partition_size
 
 # Create a folder where partition will be mounted
