@@ -57,6 +57,10 @@ make-kpkg clean
 # Déplacement sur le dossier parent (/usr/src)
 cd ..
 
+#Droit d'execution 
+chmod +x *.deb
+echo Droit d\'éxécution accordé aux fichiers d\'extension deb.
+
 #Installation
 dpkg -i *.deb
 
