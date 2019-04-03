@@ -10,6 +10,6 @@ access=$2
 ip_client_with_mask=$3
 
 chmod 777 $file
-echo $file $ip_client_with_mask ($access,sync,no_subtree) >> /etc/exports 
+echo $file $ip_client_with_mask "("$access","sync","no_subtree_check")" >> /etc/exports 
 
 /etc/init.d/nfs-kernel-server restart
